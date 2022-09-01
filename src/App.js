@@ -16,17 +16,25 @@ function App() {
       }).map((val,key)=>{
 
         return <div key={val.name}>
-                         <div>{val.name}</div>
+                         <div>
+                         <img 
+                             src={process.env.PUBLIC_URL + "/images/umap.jpeg"} 
+                             style={{ width: "30%", height: "100%" }} 
+                             alt="Dotplot"
+                         />
+                         <img 
+                             src={process.env.PUBLIC_URL + "/images/"+ val.images.dotplot+".jpeg"} 
+                             style={{ width: "50%", height: "100%" }} 
+                             alt="Dotplot"
+                         />
+                         </div>
+                         <div>
                          <img 
                              src={process.env.PUBLIC_URL + "/images/"+ val.images.featureplot+".jpeg"} 
                              style={{ width: "100%", height: "100%" }} 
                              alt="Feature Plot"
                          />
-                         <img 
-                             src={process.env.PUBLIC_URL + "/images/"+ val.images.dotplot+".jpeg"} 
-                             style={{ width: "100%", height: "100%" }} 
-                             alt="Dotplot"
-                         />
+                         </div>
 	</div>
       })}
     </div>
