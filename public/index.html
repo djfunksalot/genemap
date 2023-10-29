@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -24,9 +26,59 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>genemap</title>
+    <title>Human Kidney Single Cell and Single Nuclei</title>
   </head>
   <body>
+    <div id="main">
+      <header id="myheader">
+        <div id="logo">
+          <div id="logo_text">
+            <!-- class="logo_colour", allows you to change the colour of the text -->
+            <h1><a href="https://susztaklab.com"><span class="logo_colour">Susztaklab Kidney Biobank</span></a></h1>
+            <h2>Our site hosts comprehensive kidney omics data to help understand kidney homeostasis and disease.</h2>
+          </div>
+        </div>
+        <nav id="mynav">
+      <style type="text/css">
+        .page_center {
+            width:100%;
+        }
+        #nav {
+            height:20px;
+        }
+        #left {
+            width:33%;
+            background-color:green;
+            position:absolute;
+        }
+        #middle {
+            background-color:yellow;
+        }
+        #right {
+            width:33%;
+            background-color:green;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        #foot {
+            background-color:pink;
+        }
+        #main {
+            position:relative;
+        }
+    </style>
+
+<ul class="sf-menu" id="nav" name="nav">
+    <li style="width:200px"><a href="https://susztaklab.com">Home</a></li>
+    <li style="width:200px"><a href="https://susztaklab.com/agree.php">Agreement</a></li>
+    <li style="width:200px"><a href="https://susztaklab.com/pub.php">Publications</a></li>
+    <li style="width:200px"><a href="https://susztaklab.com/news.php">News</a></li>
+    <li style="width:250px"><a href="https://www.med.upenn.edu/susztaklab/" target="_blank">Susztak Lab</a></li>
+</ul>
+</nav>
+</header>
+<div id="site_content">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +91,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+</div>
+</div>
   </body>
 </html>
