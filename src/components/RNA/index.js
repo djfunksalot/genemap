@@ -1,7 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import JSONDATA from './genes.json';
 export default function RNA() {
     const [geneName, setGeneName] = React.useState('');
+    const fetchUserData = (uuid) => {
+	    console.log("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ uuid+".json")
+    fetch("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ uuid+".json", {mode:'no-cors'})
+      .then(response.json() => {
+	      console.log(response)
+//        return response.json()
+      })
+      .then(data => {
+	      console.log(data)
+      //  setUsers(data)
+      })
+  }
+
+
+
+
   return (
     <div className="wrapper">
       <input type="text" placeholder="seach..." onChange={e=>setGeneName(e.target.value)} />
@@ -10,29 +26,16 @@ export default function RNA() {
           return false
         }
         else if(val.name.toLowerCase() === geneName.toLowerCase()){
+		fetchUserData(val.uuid)
+		console.log(val.uuid)
           return val;
         }
       }).map((val,key)=>{
 
+
+
         return <div key={val.name}>
                          <div>
-                         <img 
-                             src={"https://s3.us-east-2.amazonaws.com/ksusztak.genemap/01/umap.png"} 
-                             style={{ width: "45%", height: "100%" }} 
-                             alt="umap"
-                         />
-                         <img 
-                             src={"https://s3.us-east-2.amazonaws.com/ksusztak.genemap/01/"+ val.images.dotplot+".jpeg"} 
-                             style={{ width: "54%", height: "100%" }} 
-                             alt="Dotplot"
-                         />
-                         </div>
-                         <div>
-                         <img 
-                             src={"https://s3.us-east-2.amazonaws.com/ksusztak.genemap/01/"+ val.images.featureplot+".jpeg"} 
-                             style={{ width: "100%", height: "100%" }} 
-                             alt="Feature Plot"
-                         />
                          </div>
 	</div>
       })}
