@@ -2,17 +2,21 @@ import React,{useState,useEffect} from 'react'
 import JSONDATA from './genes.json';
 export default function RNA() {
     const [geneName, setGeneName] = React.useState('');
-    const fetchUserData = (uuid) => {
-	    console.log("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ uuid+".json")
-    fetch("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ uuid+".json", {mode:'no-cors'})
-      .then(response.json() => {
-	      console.log(response)
-//        return response.json()
-      })
-      .then(data => {
-	      console.log(data)
-      //  setUsers(data)
-      })
+    const [data, setData] = React.useState(null);
+	  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const fetchData = async (uuid) => {
+    try {
+                let response = await fetch("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ uuid+".json", {mode:'no-cors'});
+      let result = await response.json();
+	    console.log("result")
+	    console.log(result)
+      setData(result);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
   }
 
 
@@ -26,8 +30,9 @@ export default function RNA() {
           return false
         }
         else if(val.name.toLowerCase() === geneName.toLowerCase()){
-		fetchUserData(val.uuid)
-		console.log(val.uuid)
+		fetchData(val.uuid)
+
+		console.log(val)
           return val;
         }
       }).map((val,key)=>{
@@ -35,6 +40,7 @@ export default function RNA() {
 
 
         return <div key={val.name}>
+		      <div>{JSON.stringify(data)}</div>;
                          <div>
                          </div>
 	</div>
