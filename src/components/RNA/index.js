@@ -33,7 +33,7 @@ export default function RNA() {
   return (
 	  <div>
     <div className="wrapper">
-      <input type="text" placeholder="seach..." onChange={e=>fetchData(e.target.value)} />
+      <input type="text" placeholder="seach..." onChange={e=>setGeneName(e.target.value)} />
       {JSONDATA.filter((val)=>{
         if(geneName === ""){
           return false
