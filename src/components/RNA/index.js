@@ -12,37 +12,37 @@ import {
 } from '@tanstack/react-table'
 export default function RNA() {
     const [data, setData] = React.useState(null);
+    const [headers, setHeaders] = React.useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [uuid, setUuid] = useState('');
 
-const defaultData: Person[] = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-]
+    const handleGeneData = (data) => {
+	    console.log(data)
+	   // if (data && data.header) {
+	   let i = 0
 
+           let listItems = data.header.map((head,index) =>
+	    <table style={{ width: 500 }}>
+                <thead>
+                    <tr>
+		        <th key={index}>{head}</th>
+		    </tr>
+                </thead>
+                <tbody>
+                    {data.data.map((rowContent, rowId) => 
+			   <tr key = {rowId}>{rowContent.map((col,colId)=>
+				   <td key = {colId} >{col}</td>
+			   )}
+			   }
+			    </tr>
+                    )}
+                </tbody>
+            </table>
+	    );
+	    setHeaders(listItems)
+//	    }
+    }
 
     const fetchGene = (name) => {
         {
@@ -51,7 +51,7 @@ const defaultData: Person[] = [
                     setUuid(val.uuid)
                          fetch("https://s3.us-east-2.amazonaws.com/ksusztak.genemap/JL/"+ val.uuid +".json")
     .then(response => response.json())
-    .then(data => setData(data))
+    .then(data => handleGeneData(data))
                 } else {
 			setData(null)
 		}
@@ -71,8 +71,8 @@ const defaultData: Person[] = [
         <div> {uuid} < /div> 
 
 
-      {data ? (
-        <div> {data.gene} < /div> 
+      {headers ? (
+        <div> {headers} < /div> 
 
       ) : (
         <div></div>
