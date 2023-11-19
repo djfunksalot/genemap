@@ -52,7 +52,6 @@ export default function RNA() {
             e => fetchGene(e.target.value)
         }
         />
-	    </div>
       {headers && body ? (
 	    <table style={{ width: 500 }}>
                 <thead><tr>{headers}</tr></thead>
@@ -62,6 +61,7 @@ export default function RNA() {
       ) : (
         <div></div>
       )}
+	    </div>
         </div>
         <div className = "wrapper" >
 	    Single Nuclei expression in the Human Kidney Atlas: Log and normalized average expression was calculated across all samples (<b><u>Average Expression (All Samples)</u></b>), across just control  samples <b><u>Average Expression (Control Samples)</u></b>, and across just diseased samples <b><u>Average Expression (Disease Samples)</u></b>. We also display the fraction of cells that had counts of given gene across all samples, <b><u>Fraction Expressing (All Samples)</u></b>, the fraction of cells with counts within just control samples <b><u>Fraction Expressing (Control Samples)</u></b>, and just in diseased samples <b><u>Fraction Expressing (Disease Samples)</u></b>. We also calculate p-values to see if each gene expression is differentially expressed for each cell type <b><u>CellType marker p-values</u></b>, and a p-value for differentially expressed in disease samples as compared to control samples <b><u>Disease control p-values</u></b>.
