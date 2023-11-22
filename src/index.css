@@ -12,7 +12,12 @@ code {
     monospace;
 }
 .active {
-  color:                #FFDC35;
+  color:                #4b67d6;
+  text-shadow: 1px 0px #0067d6;
+  cursor:pointer;
+}
+.inactive {
+  color:                #26084f;
   text-shadow: none;
   cursor:pointer;
 }
