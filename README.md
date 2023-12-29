@@ -5,8 +5,8 @@ It is designed to display images and associated with a gene name
 
 ## Requirements
 
-[R](https://cran.r-project.org/) along with  r-cran-ggplot2, r-cran-uuid, r-cran-rjson to generate example images and json.
 [nodejs](https://nodejs.org/en) to build and run react components.
+[R](https://cran.r-project.org/) along with  r-cran-ggplot2, r-cran-uuid, r-cran-rjson to generate example images and json.
 
 ## Available Scripts
 
@@ -25,3 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+Set the public path by exporting the PUBLIC_URL variable:\
+
+EXPORT PUBLIC_URL=/<path>
